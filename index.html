@@ -1,177 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<title>N&A</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+    body,
+    h1 {
+        font-family: "Raleway", sans-serif
+    }
+    
+    body,
+    html {
+        height: 100%
+    }
+    
+    .bgimg {
+        background-image: url('images/christmas-snow.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
 
-<head>
-  <title>Coffee House</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/coffeeHouseStyle.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
+<body>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
-
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#myPage">Coffee House</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#myModal" data-toggle="modal" data-target="#myModal" id="login">Login</a></li>
-          <li><a href="#myModal" data-toggle="modal" data-target="#myModal" style="display:none" id="create">Create</a>
-          </li>
-          <li><a href="#myModal" data-toggle="modal" data-target="#myModal" style="display:none" id="remove">Remove</a>
-          </li>
-          <li><a href="#myModal" data-toggle="modal" data-target="#myModal" style="display:none" id="logout">Logout</a>
-          </li>
-        </ul>
-      </div>
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-display-topleft w3-padding-large w3-xlarge">
+            N&A
+        </div>
+        <div class="w3-container w3-display-middle" style="position: absolute; height:100%;overflow:hidden">
+            <video src="video/blurFinal.mp4" style="min-height:100%;min-width:100%" autoplay muted loop></video>
+        </div>
+        <div class="w3-display-middle">
+            <h1 class="w3-jumbo w3-animate-top w3-center">Merry</h1>
+            <h1 class="w3-jumbo w3-animate-top">Christmas!</h1>
+            <hr class="w3-border-grey" style="margin:auto;width:40%">
+            <p class="w3-large w3-center">25 days left</p>
+        </div>
+        <div class="w3-display-bottomleft w3-padding-large">
+            Love you - I cant wait for all the amazing memories to come!
+        </div>
     </div>
-  </nav>
-  <header id="loginSuccessBanner">
-    <div class="overlay"></div>
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-      <source src="img/coffeePour.mp4" type="video/mp4">
-    </video>
-    <div class="container h-100">
-      <div class="d-flex h-100 text-left align-items-center">
-        <div class="w-100 text-white ">
-          <h1 class="display-3" id="titleBanner">Welcome to Coffee House</h1>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- Container (The Menu Section) -->
-  <div id="displayMenu" class="container text-center">
-    <h3>MENU</h3>
-    <p id="menuItems"></p>
-    <br>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
-          <h4><span class="glyphicon glyphicon-lock"></span>Admin-Dashboard</h4>
-        </div>
-        <div class="modal-body">
-          <div id="loginContainer">
-            <p id="idNotFound"></p>
-            <form id="form">
-              <div class="form-group">
-                <label for="username">Username:</label>
-                <input class="form-control" id="username">
-              </div>
-              <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" placeholder="Enter password" id="password">
-              </div>
-              <button id="myBtn" type="submit" class="btn btn-primary" style="float:right">Submit</button>
-            </form>
-          </div>
-          <div id="loginSuccessContainer" style="display:none">
-            <h2>Success!</h2>
-          </div>
-          <div id="createItem" style="display:none">
-            <form id="form">
-              <h2 id="errorHandling"></h2>
-              <h1>Create Menu Item</h1>
-              <div class="form-group">
-                <label for="item">Item</label>
-                <input class="form-control" id="item">
-              </div>
-              <div class="form-group">
-                <label for="description">Description</label>
-                <input class="form-control" id="description">
-              </div>
-              <div class="form-group">
-                <label for="price">Price</label>
-                <input class="form-control" id="price">
-              </div>
-              <button id="myBtnMenu" type="submit" class="btn btn-primary" style="float:right">Submit</button>
-            </form>
-          </div>
-          <div id="removeItem" style="display:none">
-            <form id="form">
-              <h2 id="removeSuccess"></h2>
-              <h1>Remove Menu Item</h1>
-              <div class="form-group">
-                <label for="item">Item ID</label>
-                <input class="form-control" id="itemID">
-              </div>
-              <p id="menuItemID"></p>
-              <button id="myBtnRemove" type="submit" class="btn btn-primary" style="float:right">Submit</button>
-            </form>
-          </div>
-          <div id="logoutMenu" style="display:none">
-            <h1>You have been successfully logged out</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Container (Contact Section) -->
-  <div id="contact" class="container">
-    <h3 class="text-center">Contact</h3>
-    <p class="text-center"><em>Coffee House</em></p>
-
-    <div class="row">
-      <div class="col-md-4">
-        <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
-        <p><span class="glyphicon glyphicon-phone"></span>Phone: 1(630) 555-0912</p>
-        <p><span class="glyphicon glyphicon-envelope"></span>Email: denver@du.edu</p>
-      </div>
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-          </div>
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-          </div>
-        </div>
-        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
-        <br>
-        <div class="row">
-          <div class="col-md-12 form-group">
-            <button class="btn pull-right" type="submit">Send</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Image of location/map -->
-  <div id="mapid"></div>
-
-
-  <!-- Footer -->
-  <footer class="text-center">
-    <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-      <span class="glyphicon glyphicon-chevron-up"></span>
-    </a><br>
-    <p>University of Denver ICT 4510 Portfolio Assignment</p>
-  </footer>
-  <script src="js/postData.js"></script>
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-  <script src="js/openMap.js"></script>
 </body>
 
 </html>
