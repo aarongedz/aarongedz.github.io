@@ -1,6 +1,5 @@
 body {
     background-color: whitesmoke;
-    
 }
 
 h1,
@@ -14,88 +13,79 @@ a {
     letter-spacing: 3px
 }
 
-/* Large steam-line animation */
+/* Container Anchor */
+.cup-wrapper {
+    position: relative;
+    display: inline-block;
+}
 
-#steamLeftLarge { 
-    max-width: 35px; 
-    display: block;
-    position: absolute; 
-    margin: auto 126px auto;
+/* Base styles for ALL steam elements to group them together */
+[id^="steam"] {
+    position: absolute;
+    bottom: 72%; 
+    left: 50%;   
     opacity: 0;
+    /* We pass the unique horizontal translation into the animation properties */
+    transform: translateX(var(--shift, -50%)); 
     animation: updown 4s ease infinite;
 }
 
+/* --- LARGE SCREEN STEAM POSITIONING --- */
+#steamLeftLarge { 
+    max-width: 35px;
+    --shift: -320%; /* Nudged left by 5% */
+    animation-delay: 0s; 
+}
 #steamMiddleLarge { 
-    max-width: 35px; 
-    position:absolute; 
-    margin: auto 200px auto;
-    opacity: 0;
-    animation: updown 4s ease 3s infinite;
+    max-width: 35px;
+    --shift: -95%;  /* Nudged left by 5% */
+    animation-delay: 3s; 
 }
-
 #steamRightLarge {
-    max-width: 35px; 
-    position:absolute; 
-    margin: auto 270px auto;
-    opacity: 0;
-    animation: updown 4s ease 1.5s infinite;   
+    max-width: 35px;
+    --shift: 130%;  /* Nudged left by 5% */
+    animation-delay: 1.5s; 
 }
 
-/* Medium steam-line animation */
-
+/* --- MEDIUM SCREEN STEAM POSITIONING --- */
 #steamLeftMedium {
     max-width: 20px; 
-    position:absolute; 
-    margin: auto 86px auto;
-    opacity: 0;
-    animation: updown 4s ease infinite;
+    --shift: -300%; /* Nudged left by 5% */
+    animation-delay: 0s;
 }
-
 #steamMiddleMedium { 
     max-width: 20px; 
-    position:absolute; 
-    margin: auto 131px auto;
-    opacity: 0;
-    animation: updown 4s ease 3s infinite;
+    --shift: -85%;  /* Nudged left by 5% */
+    animation-delay: 3s;
 }
-
 #steamRightMedium {
     max-width: 20px; 
-    position:absolute; 
-    margin: auto 176px auto;
-    opacity: 0;
-    animation: updown 4s ease 1.5s infinite;   
+    --shift: 130%;  /* Nudged left by 5% */
+    animation-delay: 1.5s;   
 }
 
-/* Small steam-line animation */
-
+/* --- SMALL SCREEN STEAM POSITIONING --- */
+[id^="steam"][id$="Small"] {
+    width: 100%;
+    max-width: 20px;
+}
 #steamLeftSmall {
-    width: 100%;
-    max-width: 20px;
-    position: absolute;
-    opacity: 0;
-    animation: updown 4s ease infinite;
+    --shift: -300%; /* Nudged left by 5% */
+    animation-delay: 0s;
 }
-
 #steamMiddleSmall {
-    width: 100%;
-    max-width: 20px;
-    position: absolute; 
-    opacity: 0;
-    animation: updown 4s ease 3s infinite;
+    --shift: -85%;  /* Nudged left by 5% */
+    animation-delay: 3s;
 }
-
 #steamRightSmall {
-    width: 100%;
-    max-width: 20px;
-    position: absolute; 
-    opacity: 0;
-    animation: updown 4s ease 1.5s infinite;       
+    --shift: 130%;  /* Nudged left by 5% */
+    animation-delay: 1.5s;      
 }
 
 @keyframes updown {
     0% {
-      transform: translateY(-25%); opacity: 0;
+      transform: translateX(var(--shift)) translateY(-25%); 
+      opacity: 0;
     }
   
     50% {
@@ -103,6 +93,7 @@ a {
     }
   
     100% {
-      transform: translateY(-75%); opacity: 0;
+      transform: translateX(var(--shift)) translateY(-75%); 
+      opacity: 0;
     }
-  }
+}
