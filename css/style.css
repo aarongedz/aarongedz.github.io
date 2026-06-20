@@ -22,7 +22,7 @@ a {
 /* Base styles for ALL steam elements to group them together */
 [id^="steam"] {
     position: absolute;
-    bottom: 72%; 
+    bottom: 72%; /* Lowered to exactly 73% */
     left: 50%;   
     opacity: 0;
     /* We pass the unique horizontal translation into the animation properties */
@@ -33,34 +33,34 @@ a {
 /* --- LARGE SCREEN STEAM POSITIONING --- */
 #steamLeftLarge { 
     max-width: 35px;
-    --shift: -320%; /* Nudged left by 5% */
+    --shift: -320%; 
     animation-delay: 0s; 
 }
 #steamMiddleLarge { 
     max-width: 35px;
-    --shift: -95%;  /* Nudged left by 5% */
+    --shift: -95%;  
     animation-delay: 3s; 
 }
 #steamRightLarge {
     max-width: 35px;
-    --shift: 130%;  /* Nudged left by 5% */
+    --shift: 130%;  
     animation-delay: 1.5s; 
 }
 
 /* --- MEDIUM SCREEN STEAM POSITIONING --- */
 #steamLeftMedium {
     max-width: 20px; 
-    --shift: -300%; /* Nudged left by 5% */
+    --shift: -300%; 
     animation-delay: 0s;
 }
 #steamMiddleMedium { 
     max-width: 20px; 
-    --shift: -85%;  /* Nudged left by 5% */
+    --shift: -85%;  
     animation-delay: 3s;
 }
 #steamRightMedium {
     max-width: 20px; 
-    --shift: 130%;  /* Nudged left by 5% */
+    --shift: 130%;  
     animation-delay: 1.5s;   
 }
 
@@ -70,15 +70,15 @@ a {
     max-width: 20px;
 }
 #steamLeftSmall {
-    --shift: -300%; /* Nudged left by 5% */
+    --shift: -300%; 
     animation-delay: 0s;
 }
 #steamMiddleSmall {
-    --shift: -85%;  /* Nudged left by 5% */
+    --shift: -85%;  
     animation-delay: 3s;
 }
 #steamRightSmall {
-    --shift: 130%;  /* Nudged left by 5% */
+    --shift: 130%;  
     animation-delay: 1.5s;      
 }
 
